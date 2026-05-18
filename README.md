@@ -6,7 +6,7 @@
 ## Fictional company
 **Rheinland Versicherung AG**
 
-This is the Day 1 tutorial repository for the Week 11 industrial Databricks trial project.
+This is my Day 1 project repository for the Week 11 industrial Databricks trial project.
 
 Day 1 builds the foundation:
 
@@ -16,27 +16,34 @@ Databricks trial + AWS S3 + Git project structure + synthetic German insurance d
 
 This is not a small CSV exercise. You generate synthetic insurance data with PySpark, write it to AWS S3 as raw data, then ingest it into Bronze Delta tables.
 
-## Day 1 outputs
+## Day 1 implementation status
 
-By the end of Day 1, your own project should include:
+Status: completed in small mode
 
-- Databricks trial workspace access
-- AWS S3 bucket and folder structure
-- professional repo structure
-- synthetic datasets generated with PySpark
-- raw data written to S3
-- Bronze Delta tables for:
-  - customers
-  - policies
-  - claims
-  - payments
-  - agents
-  - fraud indicators
-- ingestion metadata:
-  - `ingest_timestamp`
-  - `ingest_run_id`
-  - `source_file_name`
-- raw-to-Bronze row-count validation
+AWS S3 bucket:
+
+s3://insurance-lakehouse-week11-day1-anna-dirella-2026
+
+Day 1 completed work:
+
+- Databricks trial workspace used
+- AWS S3 bucket and folder structure created
+- synthetic German insurance data generated with PySpark
+- raw CSV data written to S3
+- Bronze Delta tables created for customers, policies, claims, payments, agents, and fraud indicators
+- ingestion metadata added to Bronze tables
+- raw-to-Bronze row counts validated successfully
+
+## Day 1 validation results
+
+| Dataset | Raw count | Bronze count | Status |
+|---|---:|---:|---|
+| customers | 10000 | 10000 | PASS |
+| policies | 25000 | 25000 | PASS |
+| claims | 50000 | 50000 | PASS |
+| payments | 50000 | 50000 | PASS |
+| agents | 100 | 100 | PASS |
+| fraud_indicators | 50000 | 50000 | PASS |
 
 ## Data modes
 

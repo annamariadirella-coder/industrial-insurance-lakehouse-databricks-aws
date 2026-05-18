@@ -6,7 +6,7 @@
 
 from pyspark.sql import functions as F
 
-S3_BUCKET = "s3://insurance-lakehouse-project-<replace-with-your-name>"
+S3_BUCKET = "s3://insurance-lakehouse-week11-day1-anna-dirella-2026"
 RAW_BASE_PATH = f"{S3_BUCKET}/raw"
 CATALOG_NAME = "insurance_lakehouse"
 BRONZE_SCHEMA = "bronze"

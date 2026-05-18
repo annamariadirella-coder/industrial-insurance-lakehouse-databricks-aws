@@ -5,9 +5,9 @@ project:
   platform: Databricks
 
 s3:
-  bucket: "s3://insurance-lakehouse-project-<replace-with-your-name>"
-  raw_base_path: "s3://insurance-lakehouse-project-<replace-with-your-name>/raw"
-  checkpoints_path: "s3://insurance-lakehouse-project-<replace-with-your-name>/checkpoints"
+  bucket: "s3://insurance-lakehouse-week11-day1-anna-dirella-2026"
+  raw_base_path: "s3://insurance-lakehouse-week11-day1-anna-dirella-2026/raw"
+  checkpoints_path: "s3://insurance-lakehouse-week11-day1-anna-dirella-2026/checkpoints"
 
 catalog:
   name: insurance_lakehouse

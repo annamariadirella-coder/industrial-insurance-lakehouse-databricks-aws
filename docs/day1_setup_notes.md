@@ -1,3 +1,7 @@
-# Day 1 Setup Notes
+## Day 1 setup notes
 
-Document Databricks trial, AWS account, S3 bucket, cost control, and issues.
+Databricks environment: Databricks trial on AWS  
+AWS S3 bucket: s3://insurance-lakehouse-week11-day1-anna-dirella-2026  
+Data mode: small  
+Cost control: small mode first, small/medium compute only, stop compute when not in use  
+Credentials: no AWS credentials committed to notebooks or GitHub

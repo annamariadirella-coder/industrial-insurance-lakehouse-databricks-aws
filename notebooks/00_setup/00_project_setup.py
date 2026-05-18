@@ -9,7 +9,7 @@ PROJECT_NAME = "insurance-lakehouse-databricks-aws"
 COMPANY_NAME = "Rheinland Versicherung AG"
 DATA_MODE = "small"
 
-S3_BUCKET = "s3://insurance-lakehouse-project-<replace-with-your-name>"
+S3_BUCKET = "s3://insurance-lakehouse-week11-day1-anna-dirella-2026"
 RAW_BASE_PATH = f"{S3_BUCKET}/raw"
 CHECKPOINTS_PATH = f"{S3_BUCKET}/checkpoints"
 

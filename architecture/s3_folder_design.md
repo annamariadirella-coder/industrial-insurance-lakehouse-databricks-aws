@@ -1,7 +1,7 @@
 # S3 Folder Design
 
 ```text
-s3://insurance-lakehouse-project-<your-name>/
+s3://insurance-lakehouse-week11-day1-anna-dirella-2026/
   raw/
     customers/
     policies/

@@ -4,7 +4,7 @@
 
 # COMMAND ----------
 
-S3_BUCKET = "s3://insurance-lakehouse-project-<replace-with-your-name>"
+S3_BUCKET = "s3://insurance-lakehouse-week11-day1-anna-dirella-2026"
 RAW_BASE_PATH = f"{S3_BUCKET}/raw"
 DATA_MODE = "small"
 PARTITIONS = 8 if DATA_MODE == "small" else 128

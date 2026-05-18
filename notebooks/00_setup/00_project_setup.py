@@ -26,7 +26,9 @@ print("S3 bucket:", S3_BUCKET)
 
 # COMMAND ----------
 
-# Create schemas if permissions allow.
+# Create catalog and schemas if permissions allow.
+spark.sql(f"CREATE CATALOG IF NOT EXISTS {CATALOG_NAME}")
+
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {CATALOG_NAME}.{BRONZE_SCHEMA}")
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {CATALOG_NAME}.{SILVER_SCHEMA}")
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {CATALOG_NAME}.{GOLD_SCHEMA}")

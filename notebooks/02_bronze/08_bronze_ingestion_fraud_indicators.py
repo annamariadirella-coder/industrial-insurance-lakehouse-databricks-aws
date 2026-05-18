@@ -27,7 +27,7 @@ bronze_df = (
     raw_df
     .withColumn("ingest_timestamp", F.current_timestamp())
     .withColumn("ingest_run_id", F.lit(ingest_run_id))
-    .withColumn("source_file_name", F.input_file_name())
+    .withColumn("source_file_name", F.col("_metadata.file_path"))
 )
 
 bronze_df.write.format("delta").mode("overwrite").saveAsTable(BRONZE_TABLE)

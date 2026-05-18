@@ -4,6 +4,10 @@
 
 # COMMAND ----------
 
+# MAGIC %run ./01_generate_synthetic_insurance_data
+
+# COMMAND ----------
+
 S3_BUCKET = "s3://insurance-lakehouse-week11-day1-anna-dirella-2026"
 RAW_BASE_PATH = f"{S3_BUCKET}/raw"
 DATA_MODE = "small"
@@ -15,7 +19,7 @@ datasets = {
     "claims": spark.table("tmp_claims"),
     "payments": spark.table("tmp_payments"),
     "agents": spark.table("tmp_agents"),
-    "fraud_indicators": spark.table("tmp_fraud_indicators"),
+    "fraud_indicators": spark.table("tmp_fraud_indicators")
 }
 
 for name, df in datasets.items():

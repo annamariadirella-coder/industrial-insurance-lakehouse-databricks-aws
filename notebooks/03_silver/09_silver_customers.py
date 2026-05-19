@@ -24,8 +24,8 @@ customers_prepared = (
     .withColumn("registration_date", F.to_date(F.col("registration_date")))
     .withColumn("gdpr_consent", F.col("gdpr_consent").cast("boolean"))
     .withColumn("customer_hash", F.sha2(F.col("customer_id").cast("string"), 256))
-    .withColumn("email_hash", F.sha2(F.lower(F.trim(F.col("email"))), 256))
-    .withColumn("phone_hash", F.sha2(F.trim(F.col("phone_number")), 256))
+    .withColumn("email_hash", F.sha2(F.lower(F.trim(F.col("email").cast("string"))), 256))
+    .withColumn("phone_hash", F.sha2(F.trim(F.col("phone_number").cast("string")), 256))
     .withColumn("customer_age", F.floor(F.months_between(F.current_date(), F.col("date_of_birth")) / 12))
 )
 
@@ -64,4 +64,3 @@ valid_customers.write.format("delta").mode("overwrite").option("overwriteSchema"
 print("Bronze customers:", customers_bronze.count())
 print("Silver customers:", spark.table(silver_table).count())
 print("Quarantine customers:", spark.table(quarantine_table).count())
-

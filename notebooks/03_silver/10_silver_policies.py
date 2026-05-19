@@ -82,3 +82,39 @@ print("Bronze policies:", policies_bronze.count())
 print("Silver policies:", spark.table(f"{CATALOG}.{SILVER_SCHEMA}.silver_policies").count())
 print("Quarantine policies:", spark.table(f"{CATALOG}.{QUARANTINE_SCHEMA}.quarantine_invalid_policies").count())
 
+# COMMAND ----------
+
+display(
+    spark.table("insurance_lakehouse.bronze.bronze_policies")
+    .select("policy_status")
+    .distinct()
+)
+
+display(
+    spark.table("insurance_lakehouse.bronze.bronze_policies")
+    .select("policy_type")
+    .distinct()
+)
+
+# COMMAND ----------
+
+display(spark.table("insurance_lakehouse.quarantine.quarantine_invalid_policies").limit(10))
+
+# COMMAND ----------
+
+from pyspark.sql import functions as F
+
+display(
+    spark.table("insurance_lakehouse.silver.silver_policies")
+    .select(
+        "policy_id",
+        "customer_id",
+        "policy_type",
+        "policy_status",
+        "premium_amount",
+        "coverage_amount",
+        "start_date",
+        "end_date"
+    )
+    .limit(10)
+)

@@ -64,3 +64,11 @@ valid_customers.write.format("delta").mode("overwrite").option("overwriteSchema"
 print("Bronze customers:", customers_bronze.count())
 print("Silver customers:", spark.table(silver_table).count())
 print("Quarantine customers:", spark.table(quarantine_table).count())
+
+# COMMAND ----------
+
+display(spark.table("insurance_lakehouse.silver.silver_customers").limit(10))
+
+# COMMAND ----------
+
+display(spark.table("insurance_lakehouse.quarantine.quarantine_invalid_customers").limit(10))

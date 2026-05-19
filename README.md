@@ -94,3 +94,55 @@ notebooks/
 ## Day 1 success statement
 
 > I created the Databricks/AWS foundation for an industrial insurance lakehouse, generated synthetic German insurance data with PySpark, landed it in S3, ingested it into Bronze Delta tables, added ingestion metadata, and validated raw-to-Bronze row counts.
+
+## Day 2 — Silver Layer, Data Quality, Quarantine and GDPR
+
+Status: completed
+
+Day 2 transformed the Bronze insurance data into trusted Silver tables with data quality validation, quarantine handling and GDPR-aware PII protection.
+
+### Silver tables created
+
+- silver_customers
+- silver_policies
+- silver_claims
+- silver_payments
+- silver_agents
+- silver_fraud_indicators
+
+### Quarantine tables created
+
+- quarantine_invalid_customers
+- quarantine_invalid_policies
+- quarantine_invalid_claims
+- quarantine_invalid_payments
+- quarantine_invalid_fraud_indicators
+
+### Day 2 validation results
+
+| Dataset | Bronze rows | Silver rows | Quarantine rows | Status |
+|---|---:|---:|---:|---|
+| customers | 10000 | 10000 | 0 | PASS |
+| policies | 25000 | 25000 | 0 | PASS |
+| claims | 50000 | 50000 | 0 | PASS |
+| payments | 50000 | 27689 | 22311 | PASS |
+| agents | 1000 | 1000 | 0 | PASS |
+| fraud_indicators | 50000 | 18575 | 31425 | PASS |
+
+### Main quality findings
+
+- Payments with `payment_date` before `claim_date` were moved to quarantine.
+- Fraud indicator records with duplicate `claim_id` were moved to quarantine.
+- All Bronze records are accounted for through Silver plus quarantine.
+- Raw PII fields were removed from `silver_customers`.
+- Hashed fields such as `customer_hash`, `email_hash` and `phone_hash` were kept for pseudonymized analytics.
+
+### Day 2 documentation
+
+- `docs/day2_data_quality_report.md`
+- `docs/day2_gdpr_pii_handling.md`
+- `outputs/day2_quality_summary.md`
+
+Day 2 success statement:
+
+> I created a trusted Silver layer from Bronze insurance data, applied data quality rules, quarantined invalid records with error reasons, protected GDPR-sensitive customer fields, and documented the results for Day 3 Gold analytics.

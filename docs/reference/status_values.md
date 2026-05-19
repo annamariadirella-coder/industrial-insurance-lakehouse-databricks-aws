@@ -1,0 +1,16 @@
+# Valid Status Values
+
+## policy_status
+`active`, `cancelled`, `expired`
+
+## claim_status
+`open`, `approved`, `rejected`, `under_review`, `paid`
+
+## payment_status
+`paid`, `pending`, `rejected`
+
+## policy_type
+`car`, `home`, `health`, `travel`, `liability`
+
+## payment_method
+`SEPA`, `bank_transfer`, `card`

@@ -1,4 +1,4 @@
-# Week 11 Day 1 — Industrial Insurance Lakehouse on Databricks and AWS
+# Week 11 Day 1 - Industrial Insurance Lakehouse on Databricks and AWS
 
 ## Project title
 **Industrial Insurance Lakehouse on Databricks and AWS: Claims, Policies, BI and AI-Ready Data Engineering**
@@ -95,7 +95,7 @@ notebooks/
 
 > I created the Databricks/AWS foundation for an industrial insurance lakehouse, generated synthetic German insurance data with PySpark, landed it in S3, ingested it into Bronze Delta tables, added ingestion metadata, and validated raw-to-Bronze row counts.
 
-## Day 2 — Silver Layer, Data Quality, Quarantine and GDPR
+## Day 2 - Silver Layer, Data Quality, Quarantine and GDPR
 
 Status: completed
 
@@ -146,3 +146,55 @@ Day 2 transformed the Bronze insurance data into trusted Silver tables with data
 Day 2 success statement:
 
 > I created a trusted Silver layer from Bronze insurance data, applied data quality rules, quarantined invalid records with error reasons, protected GDPR-sensitive customer fields, and documented the results for Day 3 Gold analytics.
+
+## Day 3 - Gold Analytics, Insurance KPIs, AI-Ready Features and Performance
+
+Status: completed
+
+Day 3 transformed trusted Silver data into business-ready Gold tables for insurance analytics, fraud-risk monitoring, agent performance, and AI-ready feature engineering.
+
+### Gold tables created
+
+- gold_claims_overview
+- gold_policy_performance
+- gold_customer_risk_profile
+- gold_claims_payment_summary
+- gold_fraud_risk_summary
+- gold_agent_performance
+- gold_claim_fraud_features
+
+### Gold validation results
+
+| Gold table | Row count | Grain | Status |
+|---|---:|---|---|
+| gold_claims_overview | 30158 | claim_month + claim_status + claim_type + policy_type + bundesland | PASS |
+| gold_policy_performance | 540 | policy_type + policy_status + sales_channel + bundesland | PASS |
+| gold_customer_risk_profile | 10000 | one row per customer | PASS |
+| gold_claims_payment_summary | 50000 | one row per claim | PASS |
+| gold_fraud_risk_summary | 810 | bundesland + policy_type + claim_type + risk_band | PASS |
+| gold_agent_performance | 1000 | one row per agent | PASS |
+| gold_claim_fraud_features | 50000 | one row per claim | PASS |
+
+### Main Day 3 work
+
+- Built business-facing Gold KPI tables from trusted Silver data
+- Defined the grain of each Gold output
+- Aggregated payments before joining to claims to avoid duplicate claim rows
+- Created an AI-ready fraud feature table with one row per claim
+- Validated Gold row counts and duplicate grain checks
+- Inspected the execution plan for the feature table
+- Ran Delta optimization successfully on the AI-ready feature table
+
+### Day 3 documentation
+
+- `docs/day3_gold_business_logic.md`
+- `docs/day3_kpi_definitions.md`
+- `docs/day3_feature_table_design.md`
+- `docs/day3_performance_notes.md`
+- `outputs/day3_gold_row_counts.md`
+- `outputs/day3_gold_validation_summary.md`
+- `outputs/day3_feature_table_profile.md`
+
+Day 3 success statement:
+
+> I created a business-ready Gold layer from trusted Silver insurance data, calculated insurance KPIs, built fraud-risk summaries, created an AI-ready claim-level feature table, validated table grains and row counts, and documented performance considerations.

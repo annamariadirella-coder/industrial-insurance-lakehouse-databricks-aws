@@ -1,0 +1,1 @@
+SELECT bundesland, policy_type, SUM(total_claims) AS total_claims, SUM(high_risk_claims) AS high_risk_claims, ROUND(AVG(average_risk_score), 2) AS avg_risk_score FROM insurance_lakehouse.gold.gold_fraud_risk_summary GROUP BY bundesland, policy_type ORDER BY high_risk_claims DESC;

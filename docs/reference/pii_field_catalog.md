@@ -1,24 +1,15 @@
 # PII Field Catalog
 
-## Direct PII
+Sensitive fields include:
 
-- `first_name`
-- `last_name`
-- `email`
-- `phone_number`
-- `street`
-- `postal_code`
+- first_name
+- last_name
+- email
+- phone_number
+- street
+- postal_code
+- date_of_birth
+- iban_hash
+- customer_id, depending on context
 
-## Sensitive fields
-
-- `date_of_birth`
-- `customer_id`
-- `iban_hash`
-
-## Recommended handling
-
-- hash email
-- hash phone number
-- create `customer_hash`
-- avoid direct PII in Gold dashboards
-- document consent-aware analytics
+Dashboard views should not expose raw personal fields.

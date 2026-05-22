@@ -1,9 +1,9 @@
-# KPI Definition Template
+# KPI Definition
 
 ## KPI name
-## Formula
-## Input tables
 ## Business meaning
-## Expected range
-## Data quality risks
+## Formula
+## Source table
+## Grain
+## Important limitations
 ## Example interpretation

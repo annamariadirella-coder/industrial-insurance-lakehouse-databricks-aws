@@ -198,3 +198,94 @@ Day 3 transformed trusted Silver data into business-ready Gold tables for insura
 Day 3 success statement:
 
 > I created a business-ready Gold layer from trusted Silver insurance data, calculated insurance KPIs, built fraud-risk summaries, created an AI-ready claim-level feature table, validated table grains and row counts, and documented performance considerations.
+
+## Day 5 - Final Delivery, Dashboard Views, Governance and Presentation
+
+Status: completed
+
+Day 5 packaged the insurance lakehouse as a professional, portfolio-ready data engineering project.
+
+The focus was not only on code, but also on making the project:
+
+- dashboard-ready
+- validated
+- governed
+- documented
+- presentation-ready
+- suitable for portfolio and interview discussion
+
+### Dashboard-ready SQL views created
+
+The following dashboard views were created in `insurance_lakehouse.gold`:
+
+| View | Purpose | Row count | Status |
+|---|---|---:|---|
+| `vw_executive_insurance_overview` | Executive KPI overview | 1 | PASS |
+| `vw_claims_operations` | Claims operations monitoring | 1350 | PASS |
+| `vw_policy_portfolio` | Policy portfolio analytics | 540 | PASS |
+| `vw_fraud_risk_monitoring` | Fraud-risk monitoring | 810 | PASS |
+| `vw_agent_regional_performance` | Agent and regional performance | 1000 | PASS |
+| `vw_data_quality_monitoring` | Quarantine and data quality monitoring | 5 | PASS |
+
+### Final validation results
+
+| Validation area | Result |
+|---|---|
+| Gold tables exist and return rows | PASS |
+| Dashboard views exist and return rows | PASS |
+| AI-ready feature table has one row per claim | PASS |
+| Duplicate claim_id groups in feature table | 0 |
+| Dashboard views expose checked raw PII fields | No |
+| Quarantine evidence documented | PASS |
+| Final documentation completed | PASS |
+
+### Governance and GDPR
+
+The dashboard views were checked for raw PII exposure.
+
+Checked fields:
+
+- first_name
+- last_name
+- email
+- phone_number
+- street
+- postal_code
+- date_of_birth
+- iban
+- iban_hash
+
+Result:
+
+No checked PII fields were exposed in the dashboard views.
+
+Status: PASS
+
+### Final documentation
+
+Day 5 added or finalized the following documentation:
+
+- `docs/03_dashboard_design_strategy.md`
+- `docs/04_governance_gdpr_strategy.md`
+- `docs/05_final_validation_strategy.md`
+- `docs/06_data_dictionary.md`
+- `docs/07_presentation_strategy.md`
+- `outputs/dashboard_view_counts.md`
+- `outputs/pii_exposure_check.md`
+- `outputs/final_validation_summary.md`
+- `outputs/final_project_inventory.md`
+- `presentation/final_project_presentation_outline.md`
+- `presentation/speaking_points.md`
+- `presentation/demo_script.md`
+
+### Final screenshots
+
+Final delivery screenshots are stored in:
+
+- `screenshots/day5/`
+
+They include dashboard view samples, dashboard view counts, PII exposure checks, Gold table counts, and feature table validation evidence.
+
+### Day 5 success statement
+
+I created dashboard-ready SQL views, validated final Gold and dashboard outputs, confirmed that dashboard views do not expose checked raw PII fields, documented governance and final validation evidence, and prepared the project for presentation and portfolio use.
